@@ -241,9 +241,11 @@ class EsformatEventListener(sublime_plugin.EventListener):
         name = view.file_name()
         if (name and os.path.splitext(name)[1][1:] in ["js"]):
             return True
+        ## LeanKit diverges here....because we do not want JSX files
+        ## to be formatted....
         # If it has no name (?) or it's not a JS, check the syntax
-        syntax = view.settings().get("syntax")
-        if (syntax and "javascript" in syntax.split("/")[-1].lower()):
-            return True
+        ##syntax = view.settings().get("syntax")
+        ##if (syntax and "javascript" in syntax.split("/")[-1].lower()):
+        ##    return True
 
         return False
